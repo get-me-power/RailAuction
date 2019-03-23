@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  content: MyString
-  product_name: MyString
-  price: 1
+  content: 結構きれいですよ
+  product_name: 腕時計
+  price: 1000
 
 two:
-  content: MyString
-  product_name: MyString
-  price: 1
+  content: 未開封です
+  product_name: ガンプラ
+  price: 1500
