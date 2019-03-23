@@ -1,0 +1,12 @@
+<table>
+  <tr>
+    <th>商品名</th><th>説明</th><th>価格</th>
+  </tr>
+  <% @posts.each do |post| %>
+    <tr>
+      <td><%= post.product_name %></td>
+      <td><%= post.content %></td>
+      <td><%= post.price %></td>
+    </tr>
+  <% end %>
+</table>
