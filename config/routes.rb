@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   get 'home/about'
 
   get 'posts/index'
+  get 'posts/new'
 end
