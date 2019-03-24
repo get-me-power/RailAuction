@@ -9,6 +9,14 @@
               <%= message %>
             </div>
         <% end %>
+        <form>
+          価格
+          <br>
+          <input type="number" name="price"><%= @post.price %>円
+        </form>
+        <br>
+        商品の概要
+        <br>
         <textarea name="content"><%= @post.content %></textarea>
         <input type="submit" value="投稿">
       </div>
