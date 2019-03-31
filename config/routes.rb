@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get 'home/top'
   get 'home/about'
 
-  get 'posts/edit'
+  get '/posts/index/:post_id/edit'
   get 'posts/index'
   get 'posts/new'
   post 'posts/create'
