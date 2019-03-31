@@ -1,5 +1,9 @@
-<p>ユーザー名</p>
-<input name="name" value="<%= @user.name %>">
-<p>パスワード</p>
-<input type="password" name="password" value="<%= @user.password %>">
-<input type="submit" value="新規登録">
+<%= form_for(@user, :url => {:action => :create, :controller => :user}) do |f| %> 
+    <%= f.label :ユーザー名 %>
+    <%= f.text_field :name %>
+    <br>
+    <%= f.label :パスワード %>
+    <%= f.password_field :password %>
+    <br>
+    <%= f.submit %>
+    <% end %>
