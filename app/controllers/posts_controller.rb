@@ -17,4 +17,7 @@ class PostsController < ApplicationController
   def edit
   end
 
+  def data
+  end
+
 end
