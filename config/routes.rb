@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get 'user/edit'
   get 'user/new'
   get 'user/login'
+  post 'user/create'
 
   get 'home/top'
   get 'home/about'

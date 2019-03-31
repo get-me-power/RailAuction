@@ -1,2 +1,9 @@
-<h1>User#new</h1>
-<p>Find me in app/views/user/new.html.erb</p>
+<%= form_for(@user, :url => {:action => :create, :controller => :user}) do |f| %> 
+    <%= f.label :ユーザー名 %>
+    <%= f.text_field :name %>
+    <br>
+    <%= f.label :パスワード %>
+    <%= f.password_field :password %>
+    <br>
+    <%= f.submit %>
+    <% end %>
