@@ -2,7 +2,9 @@
 Rails.application.routes.draw do
   get 'user/edit'
   get 'user/new'
-  get 'user/login'
+  get 'user/login_form'
+  post 'user/login' => 'user#login'
+
   post 'user/create'
 
   get 'home/top'

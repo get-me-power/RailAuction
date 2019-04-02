@@ -1,0 +1,7 @@
+<%= form_tag("/user/login") do %>
+<p>ユーザー名</p>
+<input name="name" value="<%= @name %>">
+<p>パスワード</p>
+<input type="password" name="password" value="<%= @password %>">
+<input type="submit" value="ログイン">
+<% end %>

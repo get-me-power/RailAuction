@@ -6,8 +6,23 @@ class UserController < ApplicationController
   def edit
   end
 
-  def login
+  def login_form
   end
+
+  def login
+    @user = User.find_by(name: params[:name], password: params[:password])
+    
+    if @user
+      session[:user_id] = @user.id
+      redirect_to("/posts/index")
+    else
+      @error_message = "出直して，どうぞ"
+      @email = params[:email]
+      @password = params[:password]
+      render("user/login_form")
+    end
+  end
+
   #ユーザーの新規登録を行う
   def create
     @user = User.new(create_params)
