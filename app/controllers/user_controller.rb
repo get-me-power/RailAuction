@@ -6,9 +6,6 @@ class UserController < ApplicationController
   def edit
   end
 
-  def login_form
-  end
-
   def login
     @user = User.find_by(login_params)
     

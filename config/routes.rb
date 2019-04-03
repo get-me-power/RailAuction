@@ -2,8 +2,7 @@
 Rails.application.routes.draw do
   get 'user/edit'
   get 'user/new'
-  get 'user/login_form'
-  post 'user/login' => 'user#login'
+  get 'user/login' => 'user#login_form'
 
   post 'user/create'
 
@@ -17,4 +16,6 @@ Rails.application.routes.draw do
   get 'posts/index/:post_id/edit' => "posts#edit"
 
   post 'posts/create'
+
+  post 'user/login' => 'user#login'
 end
