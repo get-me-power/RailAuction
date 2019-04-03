@@ -17,7 +17,7 @@ class UserController < ApplicationController
       redirect_to("/posts/index")
     else
       @error_message = "出直して，どうぞ"
-      @email = params[:email]
+      @name = params[:name]
       @password = params[:password]
       render("user/login_form")
     end
