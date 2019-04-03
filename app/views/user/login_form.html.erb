@@ -7,7 +7,7 @@
 <%= form_for(@user, :url => {:action => :login, :controller => :user}) do |f| %>
     
   <%= f.label :ユーザー名 %>
-  <%= f.text_field :name %>
+  <%= f.text_field :name ,:value => "#{@name}" %>
 
   <%= f.label :パスワード %>
   <%= f.password_field :password %>

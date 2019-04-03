@@ -7,7 +7,6 @@ class UserController < ApplicationController
   end
 
   def login_form
-    @user = User.new
   end
 
   def login
@@ -18,8 +17,7 @@ class UserController < ApplicationController
       redirect_to("/posts/index")
     else
       @error_message = "出直して，どうぞ"
-      @name = params[:name]
-      @password = params[:password]
+      @name = params.require(:user).permit(:name)["name"]
       render("user/login_form")
     end
   end
