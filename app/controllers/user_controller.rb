@@ -7,10 +7,11 @@ class UserController < ApplicationController
   end
 
   def login_form
+    @user = User.new
   end
 
   def login
-    @user = User.find_by(name: params[:name], password: params[:password])
+    @user = User.find_by(login_params)
     
     if @user
       session[:user_id] = @user.id
@@ -21,6 +22,13 @@ class UserController < ApplicationController
       @password = params[:password]
       render("user/login_form")
     end
+  end
+
+  def login_params
+    params.require(:user).permit(
+      :name,
+      :password
+    )
   end
 
   #ユーザーの新規登録を行う

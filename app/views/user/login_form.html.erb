@@ -1,12 +1,16 @@
 <% if @error_message %>
-<div class="form-error">
-  <%= @error_message %>
+  <div class="form-error">
+    <%= @error_message %>
   </div>
-  <% end %>
-<%= form_tag("/user/login") do %>
-<p>ユーザー名</p>
-<input name="name" value="<%= @name %>">
-<p>パスワード</p>
-<input type="password" name="password" value="<%= @password %>">
-<input type="submit" value="ログイン">
+<% end %>
+<% @user = User.new %>
+<%= form_for(@user, :url => {:action => :login, :controller => :user}) do |f| %>
+    
+  <%= f.label :ユーザー名 %>
+  <%= f.text_field :name %>
+
+  <%= f.label :パスワード %>
+  <%= f.password_field :password %>
+  
+  <%= f.submit  "ログイン" %>
 <% end %>
