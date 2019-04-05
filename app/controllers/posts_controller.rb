@@ -17,7 +17,8 @@ class PostsController < ApplicationController
   def edit
   end
 
-  def data
+  def show
+    @post = Post.find_by(id: params[:id])
   end
 
 end
