@@ -49,4 +49,10 @@ class UserController < ApplicationController
       :password
     )
   end
+
+  def logout
+    session[:user_id] = nil
+    flash[:notice] = "ログアウトしたで"
+    redirect_to("/user/login")
+  end
 end
