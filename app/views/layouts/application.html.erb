@@ -1,15 +1,25 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>RailAuction</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+    <head>
+        <title>RailAuction</title>
+        <%= csrf_meta_tags %>
+        <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    </head>
 
-  <body>
-    <%= yield %>
-  </body>
+    <body>
+        <header style="background-color: red">
+            <% if @current_user %>
+                <li>
+                    <%= link_to("商品一覧", "/posts/index") %>
+                </li>
+                <li>
+                    <%= link_to("新規投稿", "/posts/new") %>
+                </li>
+            <% end %>
+        </header>
+        <%= yield %>
+    </body>
 </html>
