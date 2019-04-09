@@ -18,6 +18,12 @@
                 <li>
                     <%= link_to("新規投稿", "/posts/new") %>
                 </li>
+                <li>
+                    <%= link_to("ユーザー一覧", "/user/index") %>
+                </li>
+                <p>
+                <%= link_to(@current_user.name, "/user/#{@current_user.id}") %>
+                </p>
             <% end %>
         </header>
         <%= yield %>
