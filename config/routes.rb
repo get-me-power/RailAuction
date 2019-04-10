@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 	get 'user/login' => 'user#login_form'
   get 'user/:id' => 'home#top'
   post 'user/create'
+  post 'user/logout'
 
 	get 'home/top'
 	get 'home/about'
