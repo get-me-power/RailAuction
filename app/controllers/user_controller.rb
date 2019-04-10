@@ -38,7 +38,7 @@ class UserController < ApplicationController
       flash[:notice] = "ユーザー登録が完了しました"
       redirect_to("/user/#{@user.id}")
     else
-      render("user/new")
+      redirect_to("/user/new")
     end
   end
 
