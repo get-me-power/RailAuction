@@ -21,6 +21,9 @@
                 <li>
                     <%= link_to("ユーザー一覧", "/user/index") %>
                 </li>
+                <li>
+                    <%= link_to("ログアウト", "/user/logout/", {method: :post}) %>
+                </li>
                 <p>
                 <%= link_to(@current_user.name, "/user/#{@current_user.id}") %>
                 </p>
