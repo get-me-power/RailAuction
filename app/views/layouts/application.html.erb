@@ -28,6 +28,12 @@
                 <%= link_to(@current_user.name, "/user/#{@current_user.id}") %>
                 </p>
             <% end %>
+
+            <% if flash[:notice] %>
+                <div class="flash">
+                    <%= flash[:notice] %>
+                </div>
+            <% end %>
         </header>
         <%= yield %>
     </body>

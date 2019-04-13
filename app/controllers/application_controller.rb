@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   def authenticate_user
     if @current_user == nil
-      @error_message = "わかる？　ログインしろって言ってんの！！"
+      flash[:notice] = "わかる？　ログインしろって言ってんの！！"
       redirect_to("/user/login")
     end
   end
