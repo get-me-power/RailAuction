@@ -1,4 +1,4 @@
 class User < ApplicationRecord
-  validates :name, {presence: true}
-  validates :password, {presence: true}
+  validates :name, {presence: true, length: {maximum: 50}}
+  validates :password, {presence: true, length: {maximum: 50}}
 end
