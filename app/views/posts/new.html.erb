@@ -25,4 +25,12 @@
     </div>
     <% end %>
   </div>
+  <% if session[:error].present? %>
+        <ul class="errors">
+            <% session[:error].each do |e| %>
+                <li><%= e %></li>
+            <% end %>
+        </ul>
+        <% session[:error] = nil %>
+    <% end %>
 </div>
