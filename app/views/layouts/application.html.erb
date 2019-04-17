@@ -29,6 +29,16 @@
                 </p>
             <% end %>
 
+            <% if @current_user == nil %>
+                <li>
+                    <%= link_to("新規登録", "/user/new") %>
+                </li>
+
+                <li>
+                    <%= link_to("ログイン", "/user/login") %>
+                </li>
+            <% end %>
+
             <% if flash[:notice] %>
                 <div class="flash">
                     <%= flash[:notice] %>
