@@ -26,6 +26,7 @@ class UserController < ApplicationController
   def login_params
     params.require(:user).permit(
       :name,
+      :email,
       :password
     )
   end
@@ -47,6 +48,7 @@ class UserController < ApplicationController
   def create_params
     params.require(:user).permit(
       :name,
+      :email,
       :password
     )
   end
