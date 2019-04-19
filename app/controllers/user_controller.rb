@@ -18,14 +18,13 @@ class UserController < ApplicationController
       redirect_to("/posts/index")
     else
       @error_message = "出直して，どうぞ"
-      @name = params.require(:user).permit(:name)["name"]
+      @email = params.require(:user).permit(:email)["name"]
       render("user/login_form")
     end
   end
 
   def login_params
     params.require(:user).permit(
-      :name,
       :email,
       :password
     )
