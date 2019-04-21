@@ -18,8 +18,8 @@ Rails.application.routes.draw do
   get 'posts/:id' => "posts#show"
   #get 'posts/index/:post_id/edit' => "posts#edit"
 
-	post 'posts/create'
-	post 'user/login' => 'user#login'
+  post 'posts/create'
+  post 'user/login' => 'user#login'
   get "/" => "home#top"
 
 end
