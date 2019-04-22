@@ -1,20 +1,22 @@
-<% provide(:title, "Edit user") %>
-<h1>Update your profile</h1>
+<h1>Edit your post</h1>
 
 <div>
   <div>
-      <%= form_for(@post, :url => {:action => :edit, :controller => :posts} ) do |f| %>
+      <%= form_for(@post, :url => {:action => 'update', :controller => :posts}) do |f| %>
 
       <%= f.label :product_name %>
       <%= f.text_field :product_name %>
+      <br>
 
       <%= f.label :price %>
       <%= f.number_field :price %>
+      <br>
 
       <%= f.label :content %>
       <%= f.text_field :content %>
+      <br>
       
-      <%= f.submit "Save changes", class: "btn btn-primary" %>
+      <%= f.submit "Save changes" %>
     <% end %>
   </div>
 </div>
