@@ -30,6 +30,10 @@ class UserController < ApplicationController
     )
   end
 
+  def show
+    @user = User.find_by(id: params[:id])
+  end
+
   #ユーザーの新規登録を行う
   def create
     @user = User.new(create_params)
