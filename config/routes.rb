@@ -16,6 +16,7 @@ Rails.application.routes.draw do
 
   #get "posts/index/:post_id/show" => "posts#show"
   get 'posts/:id' => "posts#show"
+  get 'posts/:id/edit' => 'posts#edit'
   #get 'posts/index/:post_id/edit' => "posts#edit"
 
   post 'posts/create'
