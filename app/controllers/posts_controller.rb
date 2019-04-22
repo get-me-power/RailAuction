@@ -16,10 +16,15 @@ class PostsController < ApplicationController
   end
 
   def edit
+    @post = Post.find(params[:id])
   end
 
   def show
     @post = Post.find_by(id: params[:id])
+  end
+
+  def update
+
   end
 
 end
