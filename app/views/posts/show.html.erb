@@ -2,14 +2,26 @@
     <%= link_to("back", "/posts/index") %>
 </div>
 
-<p>
-<%= @post.product_name %>
-</p>
+<div>
+    <p>
+    <b>商品名</b>
+    <br>
+    <%= @post.product_name %>
+    </p>
 
-<p>
-<%= @post.price %>
-</p>
+    <p>
+    <b>価格</b>
+    <br>
+    <%= @post.price %>円
+    </p>
 
-<p>
-<%= @post.content %>
-</p>
+    <p>
+    <b>概要</b>
+    <br>
+    <%= @post.content %>
+    </p>
+</div>
+
+<div>
+    <%= link_to("編集", "/posts/#{@post.id}/edit") %>
+</div>

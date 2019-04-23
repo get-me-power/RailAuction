@@ -1,2 +1,22 @@
-<h1>Posts#edit</h1>
-<p>Find me in app/views/posts/edit.html.erb</p>
+<h1>Edit your post</h1>
+
+<div>
+  <div>
+      <%= form_for(@post, :url => {:action => 'update', :controller => :posts}) do |f| %>
+
+      <%= f.label :product_name %>
+      <%= f.text_field :product_name %>
+      <br>
+
+      <%= f.label :price %>
+      <%= f.number_field :price %>
+      <br>
+
+      <%= f.label :content %>
+      <%= f.text_field :content %>
+      <br>
+      
+      <%= f.submit "Save changes" %>
+    <% end %>
+  </div>
+</div>

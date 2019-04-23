@@ -17,7 +17,7 @@ class UserController < ApplicationController
       session[:user_id] = @user.id
       redirect_to("/posts/index")
     else
-      @error_message = "出直して，どうぞ"
+      @error_message = "ユーザー名，またはパスワードが間違っています"
       @name = params.require(:user).permit(:name)["name"]
       render("user/login_form")
     end
@@ -25,7 +25,7 @@ class UserController < ApplicationController
 
   def login_params
     params.require(:user).permit(
-      :name,
+      :email,
       :password
     )
   end
@@ -46,6 +46,7 @@ class UserController < ApplicationController
   def create_params
     params.require(:user).permit(
       :name,
+      :email,
       :password
     )
   end
