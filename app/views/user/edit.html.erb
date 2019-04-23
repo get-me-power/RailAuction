@@ -2,7 +2,7 @@
 
 <div>
   <div>
-      <%= form_for(@user, :url => {:action => 'update', :controller => :user}) do |f| %>
+      <%= form_for(@current_user, :url => {:action => 'update', :controller => :user}) do |f| %>
 
       <%= f.label :name %>
       <%= f.text_field :name %>
