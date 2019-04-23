@@ -28,11 +28,11 @@ class UserController < ApplicationController
   end
 
   def show
-    @current_user = User.find_by(id: params[:id])
+    @user = User.find_by(id: params[:id])
   end
   
   def edit
-    @user = @current_user.id
+    @user = User.find_by(id: params[:id])
   end
   
   def update
