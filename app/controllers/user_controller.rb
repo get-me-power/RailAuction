@@ -7,9 +7,6 @@ class UserController < ApplicationController
     @users = User.all()
   end
 
-  def edit
-  end
-
   def login
     @user = User.find_by(login_params)
     
@@ -33,6 +30,14 @@ class UserController < ApplicationController
   def show
     @user = User.find_by(id: params[:id])
   end
+  
+  def edit
+    @user = User.find_by(id:  params[:id])
+  end
+  
+  def update
+
+  end
 
   #ユーザーの新規登録を行う
   def create
@@ -48,6 +53,7 @@ class UserController < ApplicationController
   end
 
   #User.newするときの引数の関数
+  
   def create_params
     params.require(:user).permit(
       :name,
