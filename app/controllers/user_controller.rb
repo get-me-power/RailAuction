@@ -32,11 +32,17 @@ class UserController < ApplicationController
   end
   
   def edit
-    @user = User.find_by(id:  params[:id])
+    @user = User.find(params[:id])
   end
   
   def update
-
+    @user = User.find(params[:id])
+    if @user.update(create_params)
+      flash[:success] = "編集しました"
+      redirect_to('/posts/index')
+    else
+      render('user/edit')
+    end
   end
 
   #ユーザーの新規登録を行う

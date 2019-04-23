@@ -1,17 +1,14 @@
-<h1>Edit your post</h1>
+<h1>Edit your account</h1>
 
 <div>
   <div>
-      <%= form_for(@user, :url => {:action => 'edit', :controller => :user}) do |f| %>
+      <%= form_for(@user, :url => {:action => 'update', :controller => :user}) do |f| %>
 
       <%= f.label :name %>
       <%= f.text_field :name %>
       <br>
 
-      <%= f.label :email %>
-      <%= f.email_field :email %>
-
-      <br>
+      
 
       <%= f.label :password %>
       <%= f.password_field :password %>
