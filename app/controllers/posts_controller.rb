@@ -11,8 +11,13 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(content: params[:content], price: params[:price], product_name: params[:product_name])
-    @post.save
-    redirect_to("/posts/index")
+    if @post.save
+      flash[:notice] = "投稿が完了しました"
+      redirect_to("/posts/index")
+    else
+      session[:error] = @post.errors.full_messages
+      redirect_to("/posts/new")
+    end
   end
 
   def edit
