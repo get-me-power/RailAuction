@@ -28,7 +28,7 @@ class UserController < ApplicationController
   end
 
   def show
-    @user = User.find_by(id: params[:id])
+    @current_user = User.find_by(id: params[:id])
   end
   
   def edit
