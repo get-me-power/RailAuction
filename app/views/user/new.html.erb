@@ -6,13 +6,4 @@
     <%= f.password_field :password %>
     <br>
     <%= f.submit %>
-
-    <% if session[:error].present? %>
-        <ul class="errors">
-            <% session[:error].each do |e| %>
-                <li><%= e %></li>
-            <% end %>
-        </ul>
-        <% session[:error] = nil # 念のため使い終わったら消す %> 
     <% end %>
-<% end %>
