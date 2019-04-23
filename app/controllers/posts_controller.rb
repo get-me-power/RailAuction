@@ -21,10 +21,27 @@ class PostsController < ApplicationController
   end
 
   def edit
+    @post = Post.find(params[:id])
   end
 
   def show
     @post = Post.find_by(id: params[:id])
   end
 
+  def update
+    @post = Post.find(params[:id])
+    if @post.update(post_params)
+      flash[:success] = "編集しました"
+      redirect_to('/posts/index')
+    else
+      render('posts/edit')
+    end
+  end
+
+  def post_params
+    params.require(:post).permit(:product_name, :price, :content)
+  end
 end
+
+
+

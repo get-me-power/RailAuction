@@ -1,5 +1,6 @@
 # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 Rails.application.routes.draw do
+  get "/" => "home#top"
   get 'user/index'
   get 'user/edit'
   get 'user/new'
@@ -14,12 +15,12 @@ Rails.application.routes.draw do
   get 'posts/index'
   get 'posts/new'
 
-  #get "posts/index/:post_id/show" => "posts#show"
   get 'posts/:id' => "posts#show"
-  #get 'posts/index/:post_id/edit' => "posts#edit"
+  get 'posts/:id/edit' => 'posts#edit'
+  patch 'posts/:id/update' => 'posts#update'
+
 
   post 'posts/create'
   post 'user/login' => 'user#login'
-  get "/" => "home#top"
 
 end
