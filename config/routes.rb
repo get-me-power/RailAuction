@@ -20,4 +20,6 @@ Rails.application.routes.draw do
 
   post 'posts/create'
   post 'user/login' => 'user#login'
+  get "/" => "home#top"
+
 end
