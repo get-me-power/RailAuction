@@ -2,10 +2,12 @@
 Rails.application.routes.draw do
   get "/" => "home#top"
   get 'user/index'
-  get 'user/edit'
   get 'user/new'
   get 'user/login' => 'user#login_form'
-  get 'user/:id' => 'home#top'
+  get 'user/:id' => 'user#show'
+  get 'user/:id/edit' => 'user#edit'
+  patch 'user/:id/update' => 'user#update'
+
   post 'user/create'
   post 'user/logout'
 

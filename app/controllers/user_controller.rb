@@ -7,9 +7,6 @@ class UserController < ApplicationController
     @users = User.all()
   end
 
-  def edit
-  end
-
   def login
     @user = User.find_by(login_params)
     
@@ -30,6 +27,24 @@ class UserController < ApplicationController
     )
   end
 
+  def show
+    @user = User.find_by(id: params[:id])
+  end
+  
+  def edit
+    @user = User.find_by(id: params[:id])
+  end
+  
+  def update
+    @user = User.find(params[:id])
+    if @user.update(create_params)
+      flash[:success] = "編集しました"
+      redirect_to('/posts/index')
+    else
+      render('user/edit')
+    end
+  end
+
   #ユーザーの新規登録を行う
   def create
     @user = User.new(create_params)
@@ -43,6 +58,7 @@ class UserController < ApplicationController
   end
 
   #User.newするときの引数の関数
+  
   def create_params
     params.require(:user).permit(
       :name,
