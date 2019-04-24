@@ -19,7 +19,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(content: params[:content], price: params[:price], product_name: params[:product_name])
+    @post = Post.new(content: params[:content], price: params[:price], product_name: params[:product_name], user_id: @current_user.id)
     if @post.save
       flash[:notice] = "投稿が完了しました"
       redirect_to("/posts/index")
