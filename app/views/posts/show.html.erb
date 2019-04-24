@@ -1,28 +1,30 @@
 <div>
-    <%= link_to("back", "/posts/index") %>
+  <%= link_to("back", "/posts/index") %>
 </div>
 
+<br>
 <div>
-    <p>
-    <b>商品名</b>
-    <br>
-    <%= @post.product_name %>
-    </p>
+  <b>商品名</b>
+  <br>
+  <%= @post.product_name %>
+  </p>
 
-    <p>
+  <p>
     <b>価格</b>
     <br>
     <%= @post.price %>円
-    </p>
+  </p>
 
-    <p>
+  <p>
     <b>概要</b>
     <br>
     <%= @post.content %>
-    </p>
+  </p>
 </div>
 <% if @current_user.id == @post.user_id %>
-    <div>
-        <%= link_to("編集", "/posts/#{@post.id}/edit") %>
-    </div>
+  <div>
+    <%= link_to("編集", "/posts/#{@post.id}/edit") %>
+  </div>
 <% end %>
+<img src="<%= "/posts_images/#{@post.picture}" %>" width="300" height="300">
+
