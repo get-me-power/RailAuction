@@ -21,7 +21,8 @@
     <%= @post.content %>
     </p>
 </div>
-
-<div>
-    <%= link_to("編集", "/posts/#{@post.id}/edit") %>
-</div>
+<% if @current_user.id == @post.user_id %>
+    <div>
+        <%= link_to("編集", "/posts/#{@post.id}/edit") %>
+    </div>
+<% end %>
