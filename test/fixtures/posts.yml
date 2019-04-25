@@ -1,11 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  id: 1
   content: 結構きれいですよ
   product_name: 腕時計
-  price: 1000 
+  price: 1000
+  user_id: 1
 
 two:
+  id: 2
   content: 未開封です
   product_name: ガンプラ
   price: 1500
+  user_id: 2
