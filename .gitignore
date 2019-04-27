@@ -33,5 +33,6 @@
 #remove gemfile.lock
 Gemfile.lock
 .DS_Store
-public/posts_images
+#publicディレクトリの，default.jpgは無視しない
+/public/posts_images/*
 !/public/posts_images/default.jpg
