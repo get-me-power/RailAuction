@@ -34,4 +34,4 @@
 Gemfile.lock
 .DS_Store
 public/posts_images
-
+!/public/posts_images/default.jpg
