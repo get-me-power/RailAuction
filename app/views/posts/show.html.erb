@@ -20,11 +20,16 @@
     <br>
     <%= @post.content %>
   </p>
+  <p>
+    <b>画像</b>
+    <br>
+    <img src="<%= "/posts_images/#{@post.picture}" %>" >
+  </p>
+  </p>
 </div>
 <% if @current_user.id == @post.user_id %>
   <div>
     <%= link_to("編集", "/posts/#{@post.id}/edit") %>
   </div>
 <% end %>
-<img src="<%= "/posts_images/#{@post.picture}" %>" width="300" height="300">
 
