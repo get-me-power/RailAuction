@@ -33,3 +33,5 @@
 #remove gemfile.lock
 Gemfile.lock
 .DS_Store
+public/posts_images
+
