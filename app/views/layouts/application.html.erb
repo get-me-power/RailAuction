@@ -11,43 +11,48 @@
 
   <body>
     <header>
-      <% if @current_user %>
-        <ul class="header-menus">
-          <li>
-            <%= link_to("商品一覧", "/posts/index") %>
-          </li>
-          <li>
-            <%= link_to("新規投稿", "/posts/new") %>
-          </li>
-          <li>
-            <%= link_to("ユーザー一覧", "/user/index") %>
-          </li>
-          <li>
-            <%= link_to("ログアウト", "/user/logout/", {method: :post}) %>
-          </li>
-          <p>
-            <%= link_to(@current_user.name, "/user/#{@current_user.id}") %>
-          </p>
-        </ul>
-      <% end %>
+      <div class="header-logo">
+        <% if @current_user %>
+          <%= link_to(@current_user.name, "/user/#{@current_user.id}") %>
+        <% else %>
+          <%= link_to("RailAuction", "/") %>
+        <% end %>
+      </div>
+      <ul class="header-menus">
+        <% if @current_user %>
+          <ul class="header-menus">
+            <li>
+              <%= link_to("商品一覧", "/posts/index") %>
+            </li>
+            <li>
+              <%= link_to("新規投稿", "/posts/new") %>
+            </li>
+            <li>
+              <%= link_to("ユーザー一覧", "/user/index") %>
+            </li>
+            <li>
+              <%= link_to("ログアウト", "/user/logout/", {method: :post}) %>
+            </li>
+          </ul>
+        <% end %>
 
-      <% if @current_user == nil %>
-        <ul class="header-menus">
-          <li>
-            <%= link_to("新規登録", "/user/new") %>
-          </li>
+        <% if @current_user == nil %>
+          <ul class="header-menus">
+            <li>
+              <%= link_to("新規登録", "/user/new") %>
+            </li>
 
-          <li>
-            <%= link_to("ログイン", "/user/login") %>
-          </li>
-        </ul>
-      <% end %>
+            <li>
+              <%= link_to("ログイン", "/user/login") %>
+            </li>
+          </ul>
+        <% end %>
 
-      <% if flash[:notice] %>
-        <div class="flash">
-          <%= flash[:notice] %>
-        </div>
-      <% end %>
+        <% if flash[:notice] %>
+          <div class="flash">
+            <%= flash[:notice] %>
+          </div>
+        <% end %>
     </header>
     <%= yield %>
   </body>

@@ -24,7 +24,25 @@ header {
     background-color: pink;
     padding: 10px;
     text-align: right;
+    text-decoration: none;
+
 }
+
+.header-logo {
+    text-align: left;
+    padding-left: 10px;
+    color: white;
+    font-size: 22px;
+    line-height: 10px;
+}
+.header-logo > a {
+    text-decoration: inherit;
+}
+
+.header-logo > a:hover {
+    color: royalblue;
+}
+
 
 header ul {
     margin: 0px;
@@ -52,11 +70,6 @@ header ul {
 .header-menus p{
     text-align: right;
     text-align: bottom;
-}
-
-.header-menus p > a {
-    text-decoration: none;
-    color: red;
 }
 
 .header-menus p > a:hover {
