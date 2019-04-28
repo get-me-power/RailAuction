@@ -23,6 +23,10 @@
 </div>
 <% if @current_user.id == @post.user_id %>
     <div>
-        <%= link_to("編集", "/posts/#{@post.id}/edit") %>
+      <%= link_to("/posts/#{@post.id}/edit") do %>
+        <div>
+          編集
+        </div>
+      <% end %>
     </div>
 <% end %>
