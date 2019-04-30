@@ -2,9 +2,15 @@
 <br>
 <h2><%= @user.name %></h2>
 <b>登録メールアドレス<b>
-<br>
-<p><%= @user.email %></p>
+    <br>
+    <p><%= @user.email %></p>
 
-<% if @user.id == @current_user.id %>
-    <%= link_to("編集", "/user/#{@current_user.id}/edit") %>
-<% end %>
+    <p>
+      <b>画像</b>
+      <br>
+      <img src="<%= "/user_images/#{@user.image_name}" %>" >
+    </p>
+
+    <% if @user.id == @current_user.id %>
+      <%= link_to("編集", "/user/#{@current_user.id}/edit") %>
+    <% end %>

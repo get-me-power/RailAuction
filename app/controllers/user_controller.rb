@@ -50,6 +50,7 @@ class UserController < ApplicationController
   #ユーザーの新規登録を行う
   def create
     @user = User.new(create_params)
+    @user.image_name = "default.jpg"
     if @user.save
       session[:user_id] = @user.id
       flash[:notice] = "ユーザー登録が完了しました"
@@ -65,7 +66,7 @@ class UserController < ApplicationController
     params.require(:user).permit(
       :name,
       :email,
-      :password
+      :password,
     )
   end
 
