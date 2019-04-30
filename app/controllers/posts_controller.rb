@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user
-  before_action :ensure_correct_user, {only: [:edit, :update]}
+  before_action :ensure_correct_user_about_post, {only: [:edit, :update]}
 
   def index
     @posts = Post.all
