@@ -1,4 +1,6 @@
 class UserController < ApplicationController
+  before_action :ensure_correct_user, {only: [:edit, :update]}
+
   def new
     @user = User.new
   end
