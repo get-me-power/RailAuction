@@ -33,4 +33,4 @@
 .DS_Store
 
 /public/user_images/*
-!/public/posts_images/default.jpg
+!/public/user_images/default.jpg
