@@ -31,3 +31,6 @@
 /config/master.key
 
 .DS_Store
+
+/public/user_images/*
+!/public/posts_images/default.jpg
