@@ -28,12 +28,17 @@
   </p>
 </div>
 <% if @current_user.id == @post.user_id %>
-    <div>
-      <%= link_to("/posts/#{@post.id}/edit") do %>
-        <div>
-          編集
-        </div>
-      <% end %>
-    </div>
+  <div>
+    <%= link_to("/posts/#{@post.id}/edit") do %>
+      <div>
+        編集
+      </div>
+    <% end %>
+    <%= link_to("/posts/#{@post.id}/destroy", {method: "post"}) do %>
+      <div>
+        削除
+      </div>
+    <% end %>
+  </div>
 <% end %>
 
