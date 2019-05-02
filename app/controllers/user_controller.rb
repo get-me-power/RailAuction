@@ -11,7 +11,7 @@ class UserController < ApplicationController
 
   def login
     @user = User.find_by(login_params)
-    
+
     if @user
       session[:user_id] = @user.id
       redirect_to("/posts/index")
@@ -32,19 +32,30 @@ class UserController < ApplicationController
   def show
     @user = User.find_by(id: params[:id])
   end
-  
+
   def edit
     @user = User.find_by(id: params[:id])
   end
-  
+
   def update
-    @user = User.find(params[:id])
-    if @user.update(create_params)
-      flash[:success] = "編集しました"
+    @user = User.find_by(id: params[:id])
+    @user.name = params[:name]
+    @user.email = params[:email]
+    @user.password = params[:password]
+
+    if params[:image]
+      @user.image_name = "#{@user.id}.jpg"
+      image = params[:image]
+      File.binwrite("public/user_images/#{@user.image_name}", image.read)
+    end
+
+    if @user.save
+      flash[:notice] = "編集しました"
       redirect_to('/posts/index')
     else
-      render('user/edit')
+      render('posts/edit')
     end
+
   end
 
   #ユーザーの新規登録を行う
@@ -61,7 +72,7 @@ class UserController < ApplicationController
   end
 
   #User.newするときの引数の関数
-  
+
   def create_params
     params.require(:user).permit(
       :name,
