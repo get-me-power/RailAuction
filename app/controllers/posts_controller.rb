@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user
-  before_action :ensure_correct_user, {only: [:edit, :update]}
+  before_action :ensure_correct_user_about_post, {only: [:edit, :update]}
 
   def index
     @posts = Post.all
@@ -11,7 +11,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(content: params[:content], price: params[:price], product_name: params[:product_name], user_id: @current_user.id)
+    @post = Post.new(content: params[:content], price: params[:price], product_name: params[:product_name], picture: "default.jpg", user_id: @current_user.id)
     if @post.save
       flash[:notice] = "投稿が完了しました"
       redirect_to("/posts/index")
@@ -22,7 +22,7 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post = Post.find(params[:id])
+    @post = Post.find_by(id: params[:id])
   end
 
   def show
@@ -30,9 +30,19 @@ class PostsController < ApplicationController
   end
 
   def update
-    @post = Post.find(params[:id])
-    if @post.update(post_params)
-      flash[:success] = "編集しました"
+    @post = Post.find_by(id: params[:id])
+    @post.product_name = params[:product_name]
+    @post.price = params[:price]
+    @post.content = params[:content]
+
+    if params[:image]
+      @post.picture = "#{@post.id}.jpg"
+      image = params[:image]
+      File.binwrite("public/posts_images/#{@post.picture}", image.read)
+    end
+
+    if @post.save
+      flash[:notice] = "編集しました"
       redirect_to('/posts/index')
     else
       render('posts/edit')
@@ -40,9 +50,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:product_name, :price, :content)
+    params.require(:post).permit(:product_name, :price, :content, :picture)
   end
 end
-
-
-

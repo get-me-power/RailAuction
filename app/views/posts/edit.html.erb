@@ -2,21 +2,17 @@
 
 <div>
   <div>
-      <%= form_for(@post, :url => {:action => 'update', :controller => :posts}) do |f| %>
-
-      <%= f.label :product_name %>
-      <%= f.text_field :product_name %>
+    <%= form_tag("/posts/#{@post.id}/update",{multipart: true}) do %>
+      <p>product_name</p>
+      <input type="name" name="product_name" value="<%= @post.product_name %>">
+      <p>price</p>
+      <input type="number" name="price" value="<%= @post.price %>">円
+      <p>content</p>
+      <textarea name="content"><%= @post.content %></textarea>
+      <p>画像</p>
+      <input name="image" type="file">
       <br>
-
-      <%= f.label :price %>
-      <%= f.number_field :price %>
-      <br>
-
-      <%= f.label :content %>
-      <%= f.text_field :content %>
-      <br>
-      
-      <%= f.submit "Save changes" %>
+      <input type="submit" value="保存">
     <% end %>
   </div>
 </div>

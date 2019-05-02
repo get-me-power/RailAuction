@@ -30,7 +30,13 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
+#remove gemfile.lock
+Gemfile.lock
 .DS_Store
 
 /public/user_images/*
 !/public/user_images/default.jpg
+=======
+#publicディレクトリの，default.jpgは無視しない
+/public/posts_images/*
+!/public/posts_images/default.jpg
