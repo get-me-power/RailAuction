@@ -55,6 +55,7 @@ class UserController < ApplicationController
       flash[:notice] = "ユーザー登録が完了しました"
       redirect_to("/user/#{@user.id}")
     else
+      session[:error] = @user.errors.full_messages
       redirect_to("/user/new")
     end
   end
