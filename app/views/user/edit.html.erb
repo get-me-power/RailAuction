@@ -1,25 +1,19 @@
-<h1>Edit your account</h1>
+<h1>Edit your post</h1>
 
 <div>
   <div>
-
-    <%= form_for(@current_user, :url => {:action => 'update', :controller => :user}) do |f| %>
-
-      <%= f.label :name %>
-      <%= f.text_field :name %>
+    <%= form_tag("/user/#{@user.id}/update",{multipart: true}) do %>
+      <p>name</p>
+      <input type="name" name="name" value="<%= @user.name %>">
+      <p>email</p>
+      <input type="email" name="email" value="<%= @user.email %>">
+      <p>password</p>
+      <input type="password" name="password" value"<%= @user.password %>">
+      <p>画像</p>
+      <input name="image" type="file">
       <br>
-
-      <%= f.label :email %>
-      <%= f.email_field :email %>
-      <br>
-
-      <%= f.label :password %>
-      <%= f.password_field :password %>
-      <br>
-
-      <%= f.submit "Save changes" %>
+      <input type="submit" value="保存">
     <% end %>
   </div>
 </div>
-
 
