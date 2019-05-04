@@ -31,20 +31,22 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find_by(id: params[:id])
-    @post.product_name = params[:product_name]
-    @post.price = params[:price]
-    @post.content = params[:content]
+    @post.product_name = params[:post][:product_name]
+    @post.price = params[:post][:price]
+    @post.content = params[:post][:content]
 
-    if params[:image]
+    if params[:post][:picture]
+      print("image posted")
       @post.picture = "#{@post.id}.jpg"
-      image = params[:image]
-      File.binwrite("public/posts_images/#{@post.picture}", image.read)
+      image = params[:post][:picture]
+      File.binwrite("public/posts_images/#{@post.id}", image.read)
     end
 
     if @post.save
       flash[:notice] = "編集しました"
       redirect_to('/posts/index')
     else
+      print("test")
       render('posts/edit')
     end
   end
