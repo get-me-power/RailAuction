@@ -30,7 +30,7 @@ class PostsController < ApplicationController
   end
 
   def update
-    @post = Post.new()
+    @post = Post.find_by(id: params[:id])
     @post.product_name = params[:post][:product_name]
     @post.price = params[:post][:price]
     @post.content = params[:post][:content]
@@ -39,7 +39,7 @@ class PostsController < ApplicationController
       print("image posted")
       @post.picture = "#{@post.id}.jpg"
       image = params[:post][:picture]
-      File.binwrite("public/posts_images/#{@post.picture}", image.read)
+      File.binwrite("public/posts_images/#{@post.id}", image.read)
     end
 
     if @post.save
