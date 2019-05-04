@@ -11,6 +11,7 @@ class UserController < ApplicationController
 
   def login
     @user = User.find_by(login_params)
+    @user.image_name = 'default.jpg'
 
     if @user
       session[:user_id] = @user.id
@@ -39,13 +40,13 @@ class UserController < ApplicationController
 
   def update
     @user = User.find_by(id: params[:id])
-    @user.name = params[:name]
-    @user.email = params[:email]
-    @user.password = params[:password]
+    @user.name = params[:user][:name]
+    @user.email = params[:user][:email]
+    @user.password = params[:user][:password]
 
-    if params[:image]
+    if params[:user][:image_name]
       @user.image_name = "#{@user.id}.jpg"
-      image = params[:image]
+      image = params[:user][:image_name]
       File.binwrite("public/user_images/#{@user.image_name}", image.read)
     end
 
@@ -53,7 +54,7 @@ class UserController < ApplicationController
       flash[:notice] = "編集しました"
       redirect_to('/posts/index')
     else
-      render('posts/edit')
+      redirect_to("/user/#{@user.id}")
     end
 
   end
