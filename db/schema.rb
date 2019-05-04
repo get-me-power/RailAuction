@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_29_032801) do
+ActiveRecord::Schema.define(version: 2019_05_04_092338) do
 
   create_table "auctions", force: :cascade do |t|
     t.integer "suggested_price"
@@ -32,11 +32,11 @@ ActiveRecord::Schema.define(version: 2019_04_29_032801) do
 
   create_table "users", force: :cascade do |t|
     t.string "name"
-    t.string "password"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "email"
     t.string "image_name"
+    t.string "password_digest"
   end
 
 end
