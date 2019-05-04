@@ -1,12 +1,26 @@
+<% @user.errors.full_messages.each do |message| %>
+  <div class="form-error">
+    <%= message %>
+  </div>
+<% end %>
+
 <%= form_for(@user, :url => {:action => :create, :controller => :user}) do |f| %> 
-    <%= f.label :ユーザー名 %>
-    <%= f.text_field :name %>
-    <br>
-    <%= f.label :メールアドレス %>
-    <%= f.email_field :email %>
-    <br>
-    <%= f.label :パスワード %>
-    <%= f.password_field :password %>
-    <br>
-    <%= f.submit %>
+  <%= f.label :ユーザー名 %>
+  <%= f.text_field :name %>
+  <br>
+  <%= f.label :メールアドレス %>
+  <%= f.email_field :email %>
+  <br>
+  <%= f.label :パスワード %>
+  <%= f.password_field :password %>
+  <br>
+  <%= f.submit %>
+<% end %>
+<% if session[:error].present? %>
+  <ul class="errors">
+    <% session[:error].each do |e| %>
+      <li><%= e %></li>
     <% end %>
+  </ul>
+  <% session[:error] = nil %>
+<% end %>
