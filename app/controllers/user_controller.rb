@@ -86,4 +86,13 @@ class UserController < ApplicationController
     flash[:notice] = "ログアウトしたで"
     redirect_to("/user/login")
   end
+
+  def destroy
+    user = User.find_by(id: session[:user_id])
+    user.destroy
+    session[:user_id] = nil
+    flash[:notice] = "退会しました"
+    redirect_to("/user/login")
+  end
+
 end

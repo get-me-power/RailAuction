@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   get 'user/login' => 'user#login_form'
   get 'user/:id' => 'user#show'
   get 'user/:id/edit' => 'user#edit'
-  post 'user/:id/update' => 'user#update'
+  patch 'user/:id/update' => 'user#update'
+  post 'user/:id/destroy' => 'user#destroy'
 
   post 'user/create'
   post 'user/logout'
@@ -20,7 +21,6 @@ Rails.application.routes.draw do
   get 'posts/:id' => "posts#show"
   get 'posts/:id/edit' => 'posts#edit'
   post 'posts/:id/update' => 'posts#update'
-
 
   post 'posts/create'
   post 'user/login' => 'user#login'

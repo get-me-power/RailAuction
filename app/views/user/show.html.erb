@@ -15,4 +15,9 @@
           編集
         </div>
       <% end %>
+      <%= link_to("/user/#{@current_user.id}/destroy", {method: :post}) do %>
+        <div>
+          退会
+        </div>
+      <% end %>
     <% end %>
