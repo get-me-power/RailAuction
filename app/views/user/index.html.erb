@@ -3,6 +3,6 @@
   <div class="user-right">
     <!--デバック用に画像のサイズは小さめに設定した-->
     <img src="<%= "/user_images/#{user.id}" %>" align="left" width="30" height="25">
-    <%= link_to(user.name, "/user/#{user.id}") %>
+    <%= link_to(user.name, "/user/#{user.image_name}") %>
   </div>
 <% end %>
