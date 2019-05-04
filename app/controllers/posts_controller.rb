@@ -39,7 +39,7 @@ class PostsController < ApplicationController
       print("image posted")
       @post.picture = "#{@post.id}.jpg"
       image = params[:post][:picture]
-      File.binwrite("public/posts_images/#{@post.id}", image.read)
+      File.binwrite("public/posts_images/#{@post.picture}", image.read)
     end
 
     if @post.save
