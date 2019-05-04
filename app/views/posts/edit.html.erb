@@ -1,16 +1,16 @@
 <h1>Edit your post</h1>
 
 <div>
-  <div>
-    <%= form_tag("/posts/#{@post.id}/update",{multipart: true}) do %>
+    <div>
+      <%= form_for(@post, :url => {:action => :update, :controller => :posts}) do |f| %>
       <p>product_name</p>
-      <input type="name" name="product_name" value="<%= @post.product_name %>">
+      <%= f.text_field :product_name %>
       <p>price</p>
-      <input type="number" name="price" value="<%= @post.price %>">円
+      <%= f.text_field :price %>円
       <p>content</p>
-      <textarea name="content"><%= @post.content %></textarea>
+      <%= f.text_area :content %>
       <p>画像</p>
-      <input name="image" type="file">
+      <%= f.file_field :picture %>
       <br>
       <input type="submit" value="保存">
     <% end %>
