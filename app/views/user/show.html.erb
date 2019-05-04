@@ -7,7 +7,7 @@
     <p>
       <b>画像</b>
       <br>
-      <img src="<%= "/user_images/#{@user.image_name}" %>" width="300" height="300">
+      <img src="<%= "/user_images/#{@user.id}" %>" width="300" height="300">
     </p>
     <% if @user.id == @current_user.id %>
       <%= link_to("/user/#{@current_user.id}/edit") do %>

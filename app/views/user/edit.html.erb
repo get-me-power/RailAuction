@@ -2,18 +2,19 @@
 
 <div>
   <div>
-    <%= form_tag("/user/#{@user.id}/update",{multipart: true}) do %>
+  <%= form_for(@user, :url => {:action => :update, :controller => :user}) do |f| %>
       <p>name</p>
-      <input type="name" name="name" value="<%= @user.name %>">
+      <%= f.text_field :name %>
       <p>email</p>
-      <input type="email" name="email" value="<%= @user.email %>">
+      <%= f.text_field :email %>
       <p>password</p>
-      <input type="password" name="password" value"<%= @user.password %>">
+      <%= f.password_field :password %>
       <p>画像</p>
-      <input name="image" type="file">
+      <%= f.file_field :image_name %>
       <br>
       <input type="submit" value="保存">
     <% end %>
+
   </div>
 </div>
 
