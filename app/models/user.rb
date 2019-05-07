@@ -34,4 +34,6 @@ class User < ApplicationRecord
     self.following.include?(other_user)
   end
 
+  has_secure_password
+
 end
