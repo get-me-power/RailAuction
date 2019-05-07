@@ -97,4 +97,18 @@ class UserController < ApplicationController
     redirect_to("/user/login")
   end
 
+  def following
+    @title = "Following"
+    @user  = User.find(params[:id])
+    @users = @user.following.paginate(page: params[:page])
+    redirect_to("/home/top")
+  end
+  
+  def followers
+    @title = "Followers"
+    @user  = User.find(params[:id])
+    @users = @user.followers.paginate(page: params[:page])
+    # render 'show_follow'
+  end
+
 end

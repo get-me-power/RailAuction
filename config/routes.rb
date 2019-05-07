@@ -26,4 +26,15 @@ Rails.application.routes.draw do
   post 'posts/create'
   post 'user/login' => 'user#login'
 
+  resources :user do
+    member do
+      # /users/:id/ ...
+      get :following, :followers
+      # GET /users/1/following => following action
+      # GET /users/1/followers => followers action
+    end
+  end
+
+  resources :relationships, only: [:create, :destroy]
+
 end

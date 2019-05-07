@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_29_032801) do
+ActiveRecord::Schema.define(version: 2019_05_07_093306) do
 
   create_table "auctions", force: :cascade do |t|
     t.integer "suggested_price"
@@ -28,6 +28,16 @@ ActiveRecord::Schema.define(version: 2019_04_29_032801) do
     t.datetime "updated_at", null: false
     t.string "picture"
     t.integer "user_id"
+  end
+
+  create_table "relationships", force: :cascade do |t|
+    t.integer "follower_id"
+    t.integer "followed_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["followed_id"], name: "index_relationships_on_followed_id"
+    t.index ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
+    t.index ["follower_id"], name: "index_relationships_on_follower_id"
   end
 
   create_table "users", force: :cascade do |t|
