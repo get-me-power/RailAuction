@@ -7,18 +7,15 @@ Things you may want to cover:
 
 * Ruby version
 2.5.0
-* System dependencies
 
-* Configuration
+## Execution method
 
-* Database creation
+1. do git clone
 
-* Database initialization
+2. Adjust ruby version (2.5.0)
 
-* How to run the test suite
+3. do `$ gem install bundler`
 
-* Services (job queues, cache servers, search engines, etc.)
+4. do `$ rails db:migrate`
 
-* Deployment instructions
-
-* ...
+5. do `$ rails s`
