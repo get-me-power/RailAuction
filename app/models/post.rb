@@ -3,4 +3,5 @@ class Post < ApplicationRecord
   validates :price, {presence:true, length: {maximum: 50}}
   validates :product_name, {presence:true, length: {maximum: 50}}
   belongs_to :user
+  has_one :auction
 end
