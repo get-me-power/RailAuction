@@ -13,7 +13,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(create_params)
     @post.picture = "default.jpg"
-    @post.user_id = @current_user.id
+    @post.user = @current_user
     if @post.save
       flash[:notice] = "投稿が完了しました"
       redirect_to("/posts/index")
