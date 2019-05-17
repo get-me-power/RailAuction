@@ -1,36 +1,31 @@
 <div class="main posts-new">
-  <div class="container">
-    <h1 class="form-heading">投稿する</h1>
-    <%= form_tag("/posts/create") do %>
-    <div class="form">
-      <div class="form-body">
-        <% @post.errors.full_messages.each do |message| %>
-            <div class="form-error">
-              <%= message %>
-            </div>
-        <% end %>
-        <form>
-          商品名<br>
-          <input type="string" name="product_name"><%= @post.product_name %><br>
-          価格
-          <br>
-          <input type="number" name="price"><%= @post.price %>円
-        </form>
-        <br>
-        商品の概要
-        <br>
-        <textarea name="content"><%= @post.content %></textarea>
-        <input type="submit" value="投稿">
-      </div>
-    </div>
-    <% end %>
-  </div>
-  <% if session[:error].present? %>
-        <ul class="errors">
-            <% session[:error].each do |e| %>
-                <li><%= e %></li>
+    <div class="container">
+        <h1 class="form-heading">投稿する</h1>
+        <%= form_for(@post, :url => {:action => :create, :controller => :posts}) do |f| %>
+            <% @post.errors.full_messages.each do |message| %>
+                <div class="form-error">
+                    <%= message %>
+                </div>
             <% end %>
-        </ul>
-        <% session[:error] = nil %>
-    <% end %>
+            <%= f.label :商品名 %>
+            <%= f.text_field :product_name %>
+
+            <%= f.label :価格 %>
+            <%= f.number_field :price %>
+
+            <%= f.label :商品の概要 %>
+            <%= f.text_area :content %>
+            <%= f.submit %>
+        <% end %>
+    </div>
+</div>
+</div>
+<% if session[:error].present? %>
+    <ul class="errors">
+        <% session[:error].each do |e| %>
+            <li><%= e %></li>
+        <% end %>
+    </ul>
+    <% session[:error] = nil %>
+<% end %>
 </div>

@@ -4,7 +4,7 @@
     </tr>
     <% @posts.each do |post| %>
         <tr>
-            <td><%= link_to(post.product_name, "/posts/#{post.picture}") %></td>
+            <td><%= link_to(post.product_name, "/posts/#{post.id}") %></td>
         </tr>
     <% end %>
 </table>
