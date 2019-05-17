@@ -4,4 +4,6 @@ class User < ApplicationRecord
   #validates :password, {presence: true, length: {minimum: 7}}
   validates :email, {uniqueness: true, presence: true}
   has_secure_password
+  has_many :post
+  has_many :follow
 end

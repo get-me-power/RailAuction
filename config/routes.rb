@@ -1,9 +1,13 @@
 # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 Rails.application.routes.draw do
+
   get "/" => "home#top"
+
   get 'user/index'
   get 'user/new'
+  post 'user/login' => 'user#login'
   get 'user/login' => 'user#login_form'
+
   get 'user/:id' => 'user#show'
   get 'user/:id/edit' => 'user#edit'
   patch 'user/:id/update' => 'user#update'
@@ -24,6 +28,7 @@ Rails.application.routes.draw do
   post "posts/:id/destroy" => "posts#destroy"
 
   post 'posts/create'
-  post 'user/login' => 'user#login'
+
+  get  'auction/index'
 
 end
