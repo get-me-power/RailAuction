@@ -11,7 +11,9 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(content: params[:content], price: params[:price], product_name: params[:product_name], picture: "default.jpg", user_id: @current_user.id)
+    @post = Post.new(create_params)
+    @post.picture = "default.jpg"
+    @post.user = @current_user
     if @post.save
       flash[:notice] = "投稿が完了しました"
       redirect_to("/posts/index")
@@ -20,6 +22,15 @@ class PostsController < ApplicationController
       redirect_to("/posts/new")
     end
   end
+
+  def create_params
+    params.require(:post).permit(
+      :content,
+      :price,
+      :product_name,
+    )
+  end
+
 
   def edit
     @post = Post.find_by(id: params[:id])
