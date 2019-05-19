@@ -28,6 +28,7 @@ class PostsController < ApplicationController
       :content,
       :price,
       :product_name,
+      :endTime,
     )
   end
 
@@ -45,6 +46,7 @@ class PostsController < ApplicationController
     @post.product_name = params[:post][:product_name]
     @post.price = params[:post][:price]
     @post.content = params[:post][:content]
+    @post.endTime = params[:post][:endTime]
 
     if params[:post][:picture]
       print("image posted")

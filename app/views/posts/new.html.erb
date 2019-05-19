@@ -15,10 +15,13 @@
 
             <%= f.label :商品の概要 %>
             <%= f.text_area :content %>
+
+            <%= f.label :オークションの締切時間 %>
+            <%= f.datetime_select :endTime, :default => @post.endTime %>
+
             <%= f.submit %>
         <% end %>
     </div>
-</div>
 </div>
 <% if session[:error].present? %>
     <ul class="errors">
@@ -28,4 +31,3 @@
     </ul>
     <% session[:error] = nil %>
 <% end %>
-</div>
