@@ -1,0 +1,18 @@
+<h1>Edit your post</h1>
+
+<div>
+    <div>
+      <%= form_for(@post, :url => {:action => :update, :controller => :posts}) do |f| %>
+      <p>product_name</p>
+      <%= f.text_field :product_name %>
+      <p>price</p>
+      <%= f.text_field :price %>円
+      <p>content</p>
+      <%= f.text_area :content %>
+      <p>画像</p>
+      <%= f.file_field :picture %>
+      <br>
+      <input type="submit" value="保存">
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<b>ユーザー名</b>
+<br>
+<h2><%= @user.name %></h2>
+<b>登録メールアドレス<b>
+    <br>
+    <p><%= @user.email %></p>
+    <p>
+      <b>画像</b>
+      <br>
+      <img src="<%= "/user_images/#{@user.image_name}" %>" width="300" height="300">
+    </p>
+    <% if @user.id == @current_user.id %>
+      <%= link_to("/user/#{@current_user.id}/edit") do %>
+        <div>
+          編集
+        </div>
+      <% end %>
+      <%= link_to("/user/#{@current_user.id}/destroy", {method: :post}) do %>
+        <div>
+          退会
+        </div>
+      <% end %>
+    <% end %>

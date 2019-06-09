@@ -1,0 +1,20 @@
+<h1>Edit your post</h1>
+
+<div>
+  <div>
+  <%= form_for(@user, :url => {:action => :update, :controller => :user}) do |f| %>
+      <p>name</p>
+      <%= f.text_field :name %>
+      <p>email</p>
+      <%= f.text_field :email %>
+      <p>password</p>
+      <%= f.password_field :password %>
+      <p>画像</p>
+      <%= f.file_field :image_name %>
+      <br>
+      <input type="submit" value="保存">
+    <% end %>
+
+  </div>
+</div>
+
