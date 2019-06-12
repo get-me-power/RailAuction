@@ -42,11 +42,8 @@ class PostsController < ApplicationController
   end
 
   def update
-    @post = Post.find_by(id: params[:id])
-    @post.product_name = params[:post][:product_name]
-    @post.price = params[:post][:price]
-    @post.content = params[:post][:content]
-    @post.endTime = params[:post][:endTime]
+    @post = Post.find_by(update_params)
+    @post.endTime = Time.zone.local(params[:post]["endTime(1i)"].to_i, params[:post]["endTime(2i)"].to_i, params[:post]["endTime(3i)"].to_i)
 
     if params[:post][:picture]
       print("image posted")
@@ -64,8 +61,12 @@ class PostsController < ApplicationController
     end
   end
 
-  def post_params
-    params.require(:post).permit(:product_name, :price, :content, :picture)
+  def update_params
+    params.require(:post).permit(
+      :content,
+      :price,
+      :product_name,
+    )
   end
 
   def destroy
