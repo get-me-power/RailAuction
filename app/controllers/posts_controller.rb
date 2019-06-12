@@ -14,6 +14,7 @@ class PostsController < ApplicationController
     @post = Post.new(create_params)
     @post.picture = "default.jpg"
     @post.user = @current_user
+    @post.endTime = Time.zone.local(params[:post]["endTime(1i)"].to_i, params[:post]["endTime(2i)"].to_i, params[:post]["endTime(3i)"].to_i)
     if @post.save
       flash[:notice] = "投稿が完了しました"
       redirect_to("/posts/index")
@@ -28,7 +29,6 @@ class PostsController < ApplicationController
       :content,
       :price,
       :product_name,
-      :endTime,
     )
   end
 
