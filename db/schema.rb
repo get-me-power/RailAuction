@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_12_130130) do
+ActiveRecord::Schema.define(version: 2019_06_12_150054) do
 
   create_table "auctions", force: :cascade do |t|
     t.integer "suggested_price"
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 2019_06_12_130130) do
     t.string "picture"
     t.integer "user_id"
     t.date "endTime"
+    t.boolean "isShowed"
   end
 
   create_table "users", force: :cascade do |t|
