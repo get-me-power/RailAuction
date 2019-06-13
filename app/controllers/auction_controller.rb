@@ -9,6 +9,10 @@ class AuctionController < ApplicationController
     @auction = Auction.new()
   end
 
+  def show
+    @auction = Auction.find_by(id: params[:id])
+  end
+
   def create
     @auction = Auction.new(create_params)
     @auction.post = Post.find_by(id: params[:id])

@@ -33,6 +33,10 @@ Rails.application.routes.draw do
 
   get 'auctions/:id/new' => 'auction#new'
 
+  # this id is post.id
   post 'auctions/:id/create' => 'auction#create'
+  
+  # this id is auction.id
+  get 'auctions/:id/' => 'auction#show'
 
 end

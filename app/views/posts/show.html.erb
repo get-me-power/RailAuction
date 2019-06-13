@@ -56,6 +56,11 @@
 <% @auctions.each do |auction| %>
     <%= auction.post.user.name %>
     <%= auction.suggested_price %>
+    <%= link_to("/auctions/#{auction.id}") do %>
+        <div>
+            詳細
+        </div>
+    <% end %>
     <br>
 <% end %>
 
