@@ -53,3 +53,9 @@
     <% end %>
 <% end %>
 
+<% @auctions.each do |auction| %>
+    <%= auction.post.user.name %>
+    <%= auction.suggested_price %>
+    <br>
+<% end %>
+
