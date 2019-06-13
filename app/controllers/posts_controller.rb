@@ -39,7 +39,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find_by(id: params[:id])
-    @auctions = Auction.where(post: @post)
+    @auctions = Auction.where(post: @post).order("suggested_price DESC")
   end
 
   def update
