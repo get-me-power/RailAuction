@@ -5,6 +5,11 @@
   </div>
 <% end %>
 
+<% if @auctions.first != nil %>
+    <p> 現在の最高価格 <%= @auctions.first.suggested_price %>円 </p>
+<% else %>
+    <p>現在の最高価格 0円</p>
+<% end %>
 <%= form_for(@auction, :url => {:action => :create, :controller => :auction}) do |f| %> 
   <%= f.label :入札価格 %>
   <%= f.text_field :suggested_price %>

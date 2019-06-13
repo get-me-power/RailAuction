@@ -7,6 +7,8 @@ class AuctionController < ApplicationController
 
   def new
     @auction = Auction.new()
+    @auctions = Auction.where(post: Post.find_by(id: params[:id]) ).order("suggested_price DESC")
+    #if @auctions.first price = @auctions.first.suggested_price
   end
 
   def show
