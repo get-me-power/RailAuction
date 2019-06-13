@@ -5,3 +5,8 @@
         back
     </div>
 <% end %>
+<% if(@auction.user == @current_user) %>
+    <%= form_tag("/auctions/#{@auction.id}/destroy", {method: :post}) do %>
+        <input type="submit" value="削除">
+    <% end %>
+<% end %>

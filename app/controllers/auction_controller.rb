@@ -16,6 +16,7 @@ class AuctionController < ApplicationController
   def create
     @auction = Auction.new(create_params)
     @auction.post = Post.find_by(id: params[:id])
+    @auction.user = User.find_by(id: @current_user.id)
     if @auction.save
       flash[:notice] = "入札が完了しました"
       redirect_to("/posts/#{@auction.post.id}")
@@ -24,6 +25,14 @@ class AuctionController < ApplicationController
       redirect_to("/auctions/#{@auction.post.id}/new")
     end
 
+  end
+
+  def destroy
+    @auction = Auction.find_by(id: params[:id])
+    id = @auction.post.id
+    @auction.destroy
+    flash[:notice] ="入札を取り消ししました"
+    redirect_to("/posts/#{id}")
   end
 
   def create_params

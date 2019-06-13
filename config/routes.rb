@@ -38,5 +38,6 @@ Rails.application.routes.draw do
   
   # this id is auction.id
   get 'auctions/:id/' => 'auction#show'
+  post 'auctions/:id/destroy' => 'auction#destroy'
 
 end
