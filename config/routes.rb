@@ -29,6 +29,10 @@ Rails.application.routes.draw do
 
   post 'posts/create'
 
-  get  'posts/:id/auction' => 'auction#index'
+  get 'auctions/index'
+
+  get 'auctions/:id/new' => 'auction#new'
+
+  post 'auctions/:id/create' => 'auction#create'
 
 end

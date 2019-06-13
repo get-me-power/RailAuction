@@ -45,5 +45,11 @@
       </div>
     <% end %>
   </div>
+<% else %>
+    <%= link_to("/auctions/#{@post.id}/new") do %>
+        <div>
+            入札する
+        </div>
+    <% end %>
 <% end %>
 
