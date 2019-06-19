@@ -57,7 +57,7 @@
 <% end %>
 <p>入札一覧</p>
 <% @auctions.each do |auction| %>
-    <%= auction.post.user.name %>
+    <%= auction.user.name %>
     <%= auction.suggested_price %>
     <%= link_to("/auctions/#{auction.id}") do %>
         <div>
