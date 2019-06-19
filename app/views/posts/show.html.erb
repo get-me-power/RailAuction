@@ -45,13 +45,16 @@
       </div>
     <% end %>
   </div>
-<% else %>
+  <% elsif Time.zone.now < @post.endTime %>
     <%= link_to("/auctions/#{@post.id}/new") do %>
         <div>
             入札する
         </div>
     <% end %>
-<% end %>
+  <% else %>
+    <p>オークション期間が終了しました</p>
+  <% end %>
+
 <% if @auctions.first != nil %>
     <h4>現在の最高価格 <%= @auctions.first.suggested_price %> </h4>
 <% end %>
