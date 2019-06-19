@@ -52,7 +52,9 @@
         </div>
     <% end %>
 <% end %>
-<h4>現在の最高価格 <%= @auctions.first.suggested_price %> </h4>
+<% if @auctions.first != nil %>
+    <h4>現在の最高価格 <%= @auctions.first.suggested_price %> </h4>
+<% end %>
 <p>入札一覧</p>
 <% @auctions.each do |auction| %>
     <%= auction.post.user.name %>
