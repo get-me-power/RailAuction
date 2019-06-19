@@ -28,9 +28,6 @@
     <b>画像</b>
     <br>
     <img src="<%= "/posts_images/#{@post.picture}" %>" >
-  </p>
-  <%= @post.user.id %>
-  </p>
 </div>
 <% if @current_user.id == @post.user_id %>
   <div>
@@ -69,4 +66,4 @@
     <% end %>
     <br>
 <% end %>
-
+<%= @post.endTime.class %>
