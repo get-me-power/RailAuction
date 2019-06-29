@@ -5,17 +5,26 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
-2.5.0
+* Ruby version **2.5.0**
+
+# Required
+
+- Ruby on Rails
+
+- Node.js
 
 ## Execution method
 
-1. do git clone
+If you don't want to install gem global, you should do below command.
+
+1. git clone this repo
 
 2. Adjust ruby version (2.5.0)
 
-3. do `$ gem install bundler`
+3. `$ gem install bundler`
 
-4. do `$ rails db:migrate`
+4. `$ bundle install --path vendor/bundle`
 
-5. do `$ rails s`
+4. `$ bundle exec rails db:migrate`
+
+5. `$ bundle exec rails s`
