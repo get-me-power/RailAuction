@@ -36,9 +36,7 @@ Gemfile.lock
 
 /public/user_images/*
 !/public/user_images/default.jpg
-
+=======
 #publicディレクトリの，default.jpgは無視しない
 /public/posts_images/*
 !/public/posts_images/default.jpg
-#  bundleでインストールする場合、ライブラリ用のディレクトリを無視
-/vendor
