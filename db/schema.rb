@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_13_222251) do
+ActiveRecord::Schema.define(version: 2019_07_01_135730) do
 
   create_table "auctions", force: :cascade do |t|
     t.integer "suggested_price"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2019_06_13_222251) do
     t.datetime "updated_at", null: false
     t.boolean "isShowed"
     t.integer "user_id"
+    t.time "endTime"
   end
 
   create_table "chats", force: :cascade do |t|
@@ -43,8 +44,8 @@ ActiveRecord::Schema.define(version: 2019_06_13_222251) do
     t.datetime "updated_at", null: false
     t.string "picture"
     t.integer "user_id"
-    t.date "endTime"
     t.boolean "isShowed"
+    t.datetime "endTime"
   end
 
   create_table "users", force: :cascade do |t|
