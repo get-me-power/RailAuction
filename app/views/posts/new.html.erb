@@ -9,15 +9,20 @@
             <% end %>
             <%= f.label :商品名 %>
             <%= f.text_field :product_name %>
+            <br>
 
             <%= f.label :価格 %>
             <%= f.number_field :price %>
+            <br>
 
             <%= f.label :商品の概要 %>
+            <br>
             <%= f.text_area :content %>
+            <br>
 
             <%= f.label :オークションの締切時間 %>
             <%= f.datetime_select :endTime, :default => @post.endTime %>
+            <br>
 
             <%= f.submit %>
         <% end %>

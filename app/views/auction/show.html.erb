@@ -1,5 +1,5 @@
-<%= @auction.post.user.name %>
-<%= @auction.suggested_price %>
+出品者: <b><%= @auction.post.user.name %></b><br>
+現在の入札価格: <b><%= @auction.suggested_price %></b> 円
 <%= link_to("/posts/#{@auction.post.id}") do %>
     <div>
         back
