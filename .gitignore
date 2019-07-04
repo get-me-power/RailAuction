@@ -36,7 +36,9 @@ Gemfile.lock
 
 /public/user_images/*
 !/public/user_images/default.jpg
-=======
 #publicディレクトリの，default.jpgは無視しない
 /public/posts_images/*
 !/public/posts_images/default.jpg
+
+#bundle管理したファイルを無視する
+/vendor/bundle

@@ -6,16 +6,18 @@ application up and running.
 Things you may want to cover:
 
 * Ruby version
-2.5.0
+**2.5.0**
 
-## Execution method
+## Execution method if you don't want install global gem
 
 1. do git clone
 
 2. Adjust ruby version (2.5.0)
 
-3. do `$ gem install bundler`
+3. `$ gem install bundler`
 
-4. do `$ rails db:migrate`
+4. `$ bundle install --path vendor/bundle`
 
-5. do `$ rails s`
+5. `$ bundle exec rails db:migrate`
+
+6. `$ bundle exec rails s`

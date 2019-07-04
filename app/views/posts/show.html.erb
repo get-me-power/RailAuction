@@ -57,8 +57,8 @@
 <% end %>
 <p>入札一覧</p>
 <% @auctions.each do |auction| %>
-    <%= auction.user.name %>
-    <%= auction.suggested_price %>
+  <b>投稿者: <b><%= auction.user.name %>
+  <b>入札価格: <b><%= auction.suggested_price %>円
     <%= link_to("/auctions/#{auction.id}") do %>
         <div>
             詳細
