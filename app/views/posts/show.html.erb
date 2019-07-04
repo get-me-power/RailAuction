@@ -21,8 +21,8 @@
     <%= @post.content %>
   </p>
   <p>残り時間</p>
-    <br>
-    <%= @post.endTime %>
+  <br>
+  <%= @post.endTime - Time.now %>
     </p>
   <p>
     <b>画像</b>
@@ -66,4 +66,3 @@
     <% end %>
     <br>
 <% end %>
-<%= @post.endTime.class %>

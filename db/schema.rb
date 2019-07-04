@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_01_135730) do
+ActiveRecord::Schema.define(version: 2019_07_01_140921) do
 
   create_table "auctions", force: :cascade do |t|
     t.integer "suggested_price"

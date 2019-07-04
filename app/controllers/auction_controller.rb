@@ -18,8 +18,12 @@ class AuctionController < ApplicationController
 
   def create
     @auction = Auction.new(create_params)
+    @auction.isShowed = true;
     @auction.post = Post.find_by(id: params[:id])
     @auction.user = User.find_by(id: @current_user.id)
+
+    #入リョクされた数値が@post.price以上かつ過去に投稿されたauctionの中の最高値よりも高い時saveを走らせる
+
     if @auction.save
       flash[:notice] = "入札が完了しました"
       redirect_to("/posts/#{@auction.post.id}")
