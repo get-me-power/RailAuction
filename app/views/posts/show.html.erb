@@ -25,8 +25,10 @@
   <p>オークション終了時刻</p>
   <%= @post.endTime %>
   <p>残り時間</p>
-  <%= @post.endTime.day - Time.now.day %>日
-  <%= @post.endTime.min - Time.now.min %>
+  あと
+  <%= (@post.endTime.day - Time.now.day).abs %>日
+  <%= (@post.endTime.hour - Time.now.hour).abs %>時間
+  <%= (@post.endTime.min - Time.now.min).abs %>分
     </p>
   <p>
     <b>画像</b>
