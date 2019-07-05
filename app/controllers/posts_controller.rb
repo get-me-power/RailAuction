@@ -49,7 +49,11 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find_by(update_params)
-    @post.endTime = Time.zone.local(params[:post]["endTime(1i)"].to_i, params[:post]["endTime(2i)"].to_i, params[:post]["endTime(3i)"].to_i)
+    @post.endTime = Time.zone.local(params[:post]["endTime(1i)"].to_i, \
+                                    params[:post]["endTime(2i)"].to_i, \
+                                    params[:post]["endTime(3i)"].to_i, \
+                                    params[:post]["endTime(4i)"].to_i, \
+                                    params[:post]["endTime(5i)"].to_i)
 
     if params[:post][:picture]
       print("image posted")

@@ -10,7 +10,7 @@
       <p>content</p>
       <%= f.text_area :content %>
       <p>オークションの締切時間</p>
-      <%= f.date_select :endTime, :default => @post.endTime %>
+      <%= f.datetime_select :endTime, :default => @post.endTime %>
       <p>画像</p>
       <%= f.file_field :picture %>
       <br>
