@@ -24,11 +24,16 @@
   <%= Time.now %>
   <p>オークション終了時刻</p>
   <%= @post.endTime %>
-  <p>残り時間</p>
-  あと
-  <%= (@post.endTime.day - Time.now.day).abs %>日
-  <%= (@post.endTime.hour - Time.now.hour).abs %>時間
-  <%= (@post.endTime.min - Time.now.min).abs %>分
+  <% yetTime = (@post.endTime.day - Time.now.day) * 24 * 60 + (@post.endTime.hour - Time.now.hour) * 60 + @post.endTime.min - Time.now.min %>
+  <% if yetTime < 0 %>
+    <p>オークションは終了しました</p>
+  <% else %>
+    <p>残り時間</p>
+    あと
+    <%= yetTime/24/60 %>日
+    <%= yetTime/60 %>時間
+    <%= yetTime%60 %>分
+  <% end %>
     </p>
   <p>
     <b>画像</b>
@@ -48,14 +53,12 @@
       </div>
     <% end %>
   </div>
-  <% elsif Time.zone.now < @post.endTime %>
+  <% elsif yetTime > 0 %>
     <%= link_to("/auctions/#{@post.id}/new") do %>
         <div>
             入札する
         </div>
     <% end %>
-  <% else %>
-    <p>オークション期間が終了しました</p>
   <% end %>
 
 <% if @auctions.first != nil %>
