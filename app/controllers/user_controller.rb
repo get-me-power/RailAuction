@@ -11,7 +11,6 @@ class UserController < ApplicationController
 
   def login
     @user = User.find_by(login_params)
-    @user.image_name = 'default.jpg'
 
     if @user && @user.authenticate(params[:user][:password])
       session[:user_id] = @user.id

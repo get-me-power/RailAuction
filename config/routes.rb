@@ -1,7 +1,7 @@
 # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 Rails.application.routes.draw do
 
-  get "/" => "home#top"
+  get '/' => 'home#top'
 
   get 'user/index'
   get 'user/new'
@@ -22,13 +22,22 @@ Rails.application.routes.draw do
   get 'posts/index'
   get 'posts/new'
 
-  get 'posts/:id' => "posts#show"
+  get 'posts/:id' => 'posts#show'
   get 'posts/:id/edit' => 'posts#edit'
   patch 'posts/:id/update' => 'posts#update'
-  post "posts/:id/destroy" => "posts#destroy"
+  post 'posts/:id/destroy' => 'posts#destroy'
 
   post 'posts/create'
 
-  get  'auction/index'
+  get 'auctions/index'
+
+  # this id is post.id
+  get 'auctions/:id/new' => 'auction#new'
+
+  post 'auctions/:id/create' => 'auction#create'
+  
+  # this id is auction.id
+  get 'auctions/:id/' => 'auction#show'
+  post 'auctions/:id/destroy' => 'auction#destroy'
 
 end

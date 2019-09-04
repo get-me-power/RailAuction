@@ -14,6 +14,12 @@ class PostsController < ApplicationController
     @post = Post.new(create_params)
     @post.picture = "default.jpg"
     @post.user = @current_user
+    @post.endTime = Time.zone.local(params[:post]["endTime(1i)"].to_i, \
+                                    params[:post]["endTime(2i)"].to_i, \
+                                    params[:post]["endTime(3i)"].to_i, \
+                                    params[:post]["endTime(4i)"].to_i, \
+                                    params[:post]["endTime(5i)"].to_i, \
+                                   )
     if @post.save
       flash[:notice] = "投稿が完了しました"
       redirect_to("/posts/index")
@@ -38,13 +44,16 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find_by(id: params[:id])
+    @auctions = Auction.where(post: @post).order("suggested_price DESC")
   end
 
   def update
-    @post = Post.find_by(id: params[:id])
-    @post.product_name = params[:post][:product_name]
-    @post.price = params[:post][:price]
-    @post.content = params[:post][:content]
+    @post = Post.find_by(update_params)
+    @post.endTime = Time.zone.local(params[:post]["endTime(1i)"].to_i, \
+                                    params[:post]["endTime(2i)"].to_i, \
+                                    params[:post]["endTime(3i)"].to_i, \
+                                    params[:post]["endTime(4i)"].to_i, \
+                                    params[:post]["endTime(5i)"].to_i)
 
     if params[:post][:picture]
       print("image posted")
@@ -62,8 +71,12 @@ class PostsController < ApplicationController
     end
   end
 
-  def post_params
-    params.require(:post).permit(:product_name, :price, :content, :picture)
+  def update_params
+    params.require(:post).permit(
+      :content,
+      :price,
+      :product_name,
+    )
   end
 
   def destroy

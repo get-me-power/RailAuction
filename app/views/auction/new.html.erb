@@ -1,0 +1,26 @@
+<p>新規入札</p>
+<% @auction.errors.full_messages.each do |message| %>
+  <div class="form-error">
+    <%= message %>
+  </div>
+<% end %>
+
+<% if @auctions.first != nil %>
+    <p> 現在の最高価格 <%= @auctions.first.suggested_price %>円 </p>
+<% else %>
+  <p> 現在の最高価格 <%= @post.price %>円
+<% end %>
+<%= form_for(@auction, :url => {:action => :create, :controller => :auction}) do |f| %> 
+  <%= f.label :入札価格 %>
+  <%= f.text_field :suggested_price %>
+  <br>
+  <%= f.submit %>
+<% end %>
+<% if session[:error].present? %>
+  <ul class="errors">
+    <% session[:error].each do |e| %>
+      <li><%= e %></li>
+    <% end %>
+  </ul>
+  <% session[:error] = nil %>
+<% end %>

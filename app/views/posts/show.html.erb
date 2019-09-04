@@ -20,13 +20,25 @@
     <br>
     <%= @post.content %>
   </p>
+  <p>現在時刻</p>
+  <%= Time.now %>
+  <p>オークション終了時刻</p>
+  <%= @post.endTime %>
+  <% yetTime = (@post.endTime.day - Time.now.day) * 24 * 60 + (@post.endTime.hour - Time.now.hour) * 60 + @post.endTime.min - Time.now.min %>
+  <% if yetTime < 0 %>
+    <p>オークションは終了しました</p>
+  <% else %>
+    <p>残り時間</p>
+    あと
+    <%= yetTime/24/60 %>日
+    <%= yetTime/60 %>時間
+    <%= yetTime%60 %>分
+  <% end %>
+    </p>
   <p>
     <b>画像</b>
     <br>
     <img src="<%= "/posts_images/#{@post.picture}" %>" >
-  </p>
-  <%= @post.user.id %>
-  </p>
 </div>
 <% if @current_user.id == @post.user_id %>
   <div>
@@ -41,5 +53,25 @@
       </div>
     <% end %>
   </div>
-<% end %>
+  <% elsif Time.zone.now < @post.endTime %>
+    <%= link_to("/auctions/#{@post.id}/new") do %>
+        <div>
+            入札する
+        </div>
+    <% end %>
+  <% end %>
 
+<% if @auctions.first != nil %>
+    <h4>現在の最高価格 <%= @auctions.first.suggested_price %>円 </h4>
+<% end %>
+<p>入札一覧</p>
+<% @auctions.each do |auction| %>
+  <b>投稿者: <b><%= auction.user.name %>
+  <b>入札価格: <b><%= auction.suggested_price %>円
+    <%= link_to("/auctions/#{auction.id}") do %>
+        <div>
+            詳細
+        </div>
+    <% end %>
+    <br>
+<% end %>

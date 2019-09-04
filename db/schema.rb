@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_13_074614) do
+ActiveRecord::Schema.define(version: 2019_07_01_140921) do
 
   create_table "auctions", force: :cascade do |t|
     t.integer "suggested_price"
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2019_05_13_074614) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "isShowed"
+    t.integer "user_id"
     t.time "endTime"
   end
 
@@ -30,10 +31,9 @@ ActiveRecord::Schema.define(version: 2019_05_13_074614) do
 
   create_table "follows", force: :cascade do |t|
     t.integer "user_id"
-    t.string "followed_user_id"
-    t.string "integer"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "isBlocked"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -44,6 +44,8 @@ ActiveRecord::Schema.define(version: 2019_05_13_074614) do
     t.datetime "updated_at", null: false
     t.string "picture"
     t.integer "user_id"
+    t.boolean "isShowed"
+    t.datetime "endTime"
   end
 
   create_table "users", force: :cascade do |t|
