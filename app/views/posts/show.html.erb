@@ -53,7 +53,7 @@
       </div>
     <% end %>
   </div>
-  <% elsif Time.zone.now < @post.endTime %>
+  <% elsif yetTime > 0 %>
     <%= link_to("/auctions/#{@post.id}/new") do %>
         <div>
             入札する
