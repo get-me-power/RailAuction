@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_30_164555) do
+ActiveRecord::Schema.define(version: 2019_10_02_181823) do
 
   create_table "auctions", force: :cascade do |t|
     t.integer "suggested_price"
@@ -35,7 +35,6 @@ ActiveRecord::Schema.define(version: 2019_09_30_164555) do
     t.boolean "isBlocked"
     t.integer "followTo"
     t.integer "followFrom"
-    t.text "content"
   end
 
   create_table "posts", force: :cascade do |t|
