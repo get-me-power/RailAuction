@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get 'user/:id' => 'user#show'
   get 'user/:id/edit' => 'user#edit'
   patch 'user/:id/update' => 'user#update'
+  patch 'user/:id/follow' => 'user#follow'
   post 'user/:id/destroy' => 'user#destroy'
 
   post 'user/create'

@@ -95,4 +95,17 @@ class UserController < ApplicationController
     redirect_to("/user/login")
   end
 
+  def follow
+    follow = Follow.new()
+    follow.followTo = @current_user
+    follow.followFrom = User.find_by(id: params[:id])
+    follow.isBlocked = false
+    puts "test"
+    puts follow.followTo
+    puts "test"
+    if follow.save
+      puts "test"
+    end
+  end
+
 end
