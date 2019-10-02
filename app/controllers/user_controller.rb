@@ -97,14 +97,17 @@ class UserController < ApplicationController
 
   def follow
     follow = Follow.new()
-    follow.followTo = @current_user
-    follow.followFrom = User.find_by(id: params[:id])
+    follow.followTo = User.find_by(id: params[:id]).id
+    # 取れてる
+    follow.followFrom = @current_user.id
     follow.isBlocked = false
-    puts "test"
+    # followは取れているけど、saveができない
     puts follow.followTo
-    puts "test"
+    puts follow.followFrom
     if follow.save
-      puts "test"
+      puts "save success"
+    else
+      puts "save failed"
     end
   end
 
