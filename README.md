@@ -25,5 +25,11 @@ Things you may want to cover:
 
 ## TODO
 
+- [ ] er図カキコし直し
 - [ ] オークションの落札者と入札者のチャット機能を生成する
 - [ ] follow機能の実装(優先)
+- [ ] View部分をjson機能に置き換える
+
+## reference
+
+> https://www.draw.io/
